@@ -19,13 +19,13 @@ const CopyKeyComponent = ({
   };
 
   return (
-    <p
+    <strong
       className="flex gap-2 items-center"
       onClick={() => onCopy(keyValue || "")}
     >
       {keyValue ? keyValue : envValue ? envValue : "Not set"}
       <Copy className="w-4 h-4" />
-    </p>
+    </strong>
   );
 };
 

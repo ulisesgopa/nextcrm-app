@@ -606,6 +606,7 @@ enum Language {
   en
   de
   uk
+  es
 }
 
 model system_Modules_Enabled {

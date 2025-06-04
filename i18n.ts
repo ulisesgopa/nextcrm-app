@@ -1,6 +1,12 @@
-import { getRequestConfig } from "next-intl/server";
+import { getRequestConfig, setRequestLocale } from "next-intl/server";
 
-export default getRequestConfig(async ({ locale }) => ({
-  messages: (await import(`./locales/${locale}.json`)).default,
-  timeZone: "Europe/Prague",
-}));
+export default getRequestConfig(async ({locale}) => {
+  // Validate that the incoming `locale` parameter is valid
+  setRequestLocale(locale);
+
+  return {
+    locale,
+    messages: (await import(`./locales/${locale}.json`)).default,
+    timeZone: "America/Colombia",
+  };
+});
